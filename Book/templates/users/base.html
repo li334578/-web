@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+
+    {% block style %}
+        <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="/static/js/base.js"></script>
+    {% endblock style %}
+</head>
+<body>
+<div class="top-link">
+    <div class="container">
+        <div class="fl">
+            <a href="javascript:;">用户</a>
+            <a href="javascript:;">管理员</a>
+        </div>
+        <div class="fr">
+            <a href="/register/">注册用户</a>
+        </div>
+    </div>
+</div>
+<div class="top-box">
+    <div class="container-box">
+        <div class="fl">青环图书</div>
+        <div class="info">欢迎你:
+            <em></em>
+            <span class="quit">退出</span>
+        </div>
+        <div class="fr">书犹药善读则医愚</div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li><a href="/index/">首页</a></li>
+        <li><a href="javascript:;">馆藏介绍</a></li>
+        <li><a href="javascript:;">图书分类</a></li>
+        <li><a href="javascript:;">待借书单</a></li>
+        <li><a href="javascript:;">归还图书</a></li>
+        <li><a href="javascript:;">关于我们</a></li>
+    </ul>
+</div>
+
+<div>
+    {% block div_body %}
+<div class="introduction">
+    <p>
+        图书馆收集的各种类型文献资料的总和，简称馆藏或藏书。是图书馆赖以存在的物质基础，是满足读者需求的根本保证。图书馆馆藏是与一定时期的文献生产和使用方式紧密联系的。现代图书馆收藏的文献资料包括图书、期刊、政府出版物、小册子、学位论文、报告、照片、电影片、幻灯片、唱片、录音磁带、美术作品、缩微文献、计算机可读资料等等。
+    </p>
+</div>
+
+
+<div class="from">
+    {% csrf_token %}
+    <h3>登录</h3>
+    <label for="name">账号:</label>
+    <input type="text" id="name"><br/>
+    <label for="name">密码:</label>
+    <input type="password" id="pwd"><br/>
+    <input type="button" value="登录" id="login_btn"><br>
+    <span id='err_msg'></span>
+</div>
+
+
+<div class="div_hide1">
+    <ul>
+        <li><a href="javascript:;">人物传记</a></li>
+        <li><a href="javascript:;">社会科学</a></li>
+        <li><a href="javascript:;">经典名著</a></li>
+        <li><a href="javascript:;">心理学</a></li>
+    </ul>
+
+</div>
+<div class="div_hide2">
+    <div class="sub">提交</div>
+</div>
+<div class="div_hide3">
+    <div>
+        <span class="return_book_menu">书名</span>
+        <span class="return_book_menu">借书时间</span>
+    </div>
+</div>
+        <div class="about">
+            <p>Copyright ©2019-05-仅供学习使用　版权所有</p>
+        </div>
+    </div>
+<div class="div_books">
+    <ul>
+        <li><a href="javascript:;">图书分类</a></li>
+        <li><a href="javascript:;">人物传记</a></li>
+        <li><a href="javascript:;">社会科学</a></li>
+        <li><a href="javascript:;">经典名著</a></li>
+        <li><a href="javascript:;">心理学</a></li>
+    </ul>
+    <div class="context">
+        <ul>
+            <li>书名</li>
+            <li>作者</li>
+            <li>ISBN</li>
+            <li>库存</li>
+            <li>操作</li>
+        </ul>
+    </div>
+</div>
+        <div class="borrow">
+            <div class="list">
+                <label for="book_name">书名</label>
+                <input type="text" id="book_name"><br/>
+                <label for="autor_name">作者名</label>
+                <input type="text" id="autor_name"><br/>
+                <label for="book_stock">库存数</label>
+                <input type="text" id="book_stock"><br/>
+                <label for="book_ISBN">ISBN码</label>
+                <input type="text" id="book_ISBN"><br/>
+                <label for="book_type">图书类型</label>
+                心理学<input type="radio" name="list_radio" class="list_radio" value="心理学">
+                经典名著<input type="radio" name="list_radio" class="list_radio" value="经典名著">
+                社会科学<input type="radio" name="list_radio" class="list_radio" value="社会科学">
+                人物传记<input type="radio" name="list_radio" class="list_radio" value="人物传记"><br/>
+                <input type="button" class="update_btn" value="提交">
+            </div>
+        </div>
+{% endblock div_body %}
+</body>
+</html>
